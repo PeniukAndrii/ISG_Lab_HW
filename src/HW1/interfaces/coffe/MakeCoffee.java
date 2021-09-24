@@ -36,19 +36,24 @@ public interface MakeCoffee {
     }
 
     static void addWather(CoffeeMachine coffeeMachine){
-        if(coffeeMachine.getWaterTank() >= coffeeMachine.getWaterTankLimit()){
+        if(coffeeMachine.getWaterTank() < coffeeMachine.getWaterTankLimit()){
+            coffeeMachine.setWaterTank(coffeeMachine.getWaterTankLimit());
+            System.out.println("Бак з водою заповнений");
+        }
+        else {
             System.out.println("Бак з водою вже заповнений");
         }
-        coffeeMachine.setWaterTank(coffeeMachine.getWaterTankLimit());
-        System.out.println("Бак з водою заповнений");
+
     }
 
     static void addCoffee(CoffeeMachine coffeeMachine){
-        if(coffeeMachine.getCoffeeTank() >= coffeeMachine.getCoffeeTankLimit()){
+        if(coffeeMachine.getCoffeeTank() < coffeeMachine.getCoffeeTankLimit()){
+            coffeeMachine.setCoffeeTank(coffeeMachine.getCoffeeTankLimit());
+            System.out.println("Бак з кавою заповнений");
+        }
+        else{
             System.out.println("Бак з кавою вже заповнений");
         }
-        coffeeMachine.setCoffeeTank(coffeeMachine.getCoffeeTankLimit());
-        System.out.println("Бак з кавою заповнений");
     }
 
 }

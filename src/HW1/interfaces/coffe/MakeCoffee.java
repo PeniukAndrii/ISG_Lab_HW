@@ -7,14 +7,14 @@ import HW1.menu.Menu;
 
 import java.util.concurrent.TimeUnit;
 
-public interface MadeCoffee {
-    static void madeCoffee(CoffeeMachine coffeeMachine, Drinks drinks) throws InterruptedException {
+public interface MakeCoffee {
+    static void makeCoffee(CoffeeMachine coffeeMachine, Drinks drinks) throws InterruptedException {
         int localWaterTank = coffeeMachine.getWaterTank();
         int localCoffeeTank = coffeeMachine.getCoffeeTank();
         int localDrinkWaterTank = drinks.getWaterTank();
         int localDrinkCoffeeTank = drinks.getCoffeeTank();
 
-        if(localWaterTank-localDrinkWaterTank < 0){
+        if(localWaterTank - localDrinkWaterTank < 0){
             System.out.println("Заповніть бак з водою");
             if(localCoffeeTank - localDrinkCoffeeTank < 0){
                 System.out.println("Заповніть бак з кавою");

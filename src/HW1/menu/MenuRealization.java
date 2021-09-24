@@ -2,12 +2,12 @@ package HW1.menu;
 
 import HW1.coffeMachines.CoffeeMachine;
 import HW1.enums.drinks.Drinks;
-import HW1.interfaces.coffe.MadeCoffee;
+import HW1.interfaces.coffe.MakeCoffee;
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public final class MenuRealization implements MadeCoffee {
+public final class MenuRealization implements MakeCoffee {
     public static void menuRealization(CoffeeMachine coffeeMachine) throws InterruptedException {
         Scanner in = new Scanner(System.in);
         boolean y = false;
@@ -19,20 +19,20 @@ public final class MenuRealization implements MadeCoffee {
                     Menu.menuInCoffeeMachine();
                     break;
                 case 2:
-                    MadeCoffee.madeCoffee(coffeeMachine, Drinks.AMERICANO);
+                    MakeCoffee.makeCoffee(coffeeMachine, Drinks.AMERICANO);
                     break;
                 case 3:
-                    MadeCoffee.madeCoffee(coffeeMachine, Drinks.ESPRESSO);
+                    MakeCoffee.makeCoffee(coffeeMachine, Drinks.ESPRESSO);
                     break;
                 case 4:
-                    MadeCoffee.madeCoffee(coffeeMachine, Drinks.DOUBLE_ESPRESSO);
+                    MakeCoffee.makeCoffee(coffeeMachine, Drinks.DOUBLE_ESPRESSO);
                     break;
                 case 5:
-                    MadeCoffee.addWather(coffeeMachine);
+                    MakeCoffee.addWather(coffeeMachine);
                     Menu.menuInCoffeeMachine();
                     break;
                 case 6:
-                    MadeCoffee.addCoffee(coffeeMachine);
+                    MakeCoffee.addCoffee(coffeeMachine);
                     Menu.menuInCoffeeMachine();
                     break;
                 case 7:
@@ -48,7 +48,7 @@ public final class MenuRealization implements MadeCoffee {
                     Menu.menuInCoffeeMachine();
             }
             TimeUnit.SECONDS.sleep(2); // Для маленької паузи після виводу інфи.
-        } while (y!=true);
-
+        }while (!y);
+        System.exit(1);
     }
 }

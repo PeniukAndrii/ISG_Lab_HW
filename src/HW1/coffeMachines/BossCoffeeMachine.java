@@ -24,12 +24,6 @@ public class BossCoffeeMachine extends CoffeeMachine {
     }
 
     @Override
-    public String toString() {
-        return "BossCoffeeMachine: " + "model-" + " "
-                + model + "\n" + "Info: " + super.toString();
-    }
-
-    @Override
     public int getWaterTankLimit() {
         return waterLimit;
     }
@@ -37,5 +31,11 @@ public class BossCoffeeMachine extends CoffeeMachine {
     @Override
     public int getCoffeeTankLimit() {
         return coffeeLimit;
+    }
+
+    @Override
+    public String toString() {
+        return "BossCoffeeMachine: " + "model-" + " "
+                + model + "\n" + "Info: " + super.toString();
     }
 }

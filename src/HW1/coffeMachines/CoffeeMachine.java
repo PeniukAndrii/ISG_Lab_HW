@@ -1,5 +1,9 @@
 package HW1.coffeMachines;
 
+import HW1.enums.drinks.Drinks;
+
+import java.util.concurrent.TimeUnit;
+
 public abstract class CoffeeMachine {
     private int waterTank;
     private int coffeeTank;
@@ -28,17 +32,16 @@ public abstract class CoffeeMachine {
         this.coffeeTank = coffeeTank;
     }
 
+    public abstract int getWaterTankLimit();
+    public abstract int getCoffeeTankLimit();
+
+    public void getInfoAboutTank(){
+        System.out.println("WaterTank-" + " "  + waterTank + "\n" +
+                "CoffeeTank-" + " " + coffeeTank );
+    }
+
     @Override
     public String toString() {
         return "waterTankLimit=" + " " + getWaterTankLimit() + " coffeeTankLimit-" + " " + getCoffeeTankLimit();
     }
-
-    public void getInfoAboutTank(){
-        System.out.println("WaterTank-" + " "  + waterTank + "\n" +
-         "CoffeeTank-" + " " + coffeeTank );
-    }
-
-
-    public abstract int getWaterTankLimit();
-    public abstract int getCoffeeTankLimit();
 }

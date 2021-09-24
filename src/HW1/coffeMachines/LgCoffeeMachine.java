@@ -4,6 +4,7 @@ public class LgCoffeeMachine extends CoffeeMachine {
     private String info;
     private final int waterLimit = 200;
     private final int coffeeLimit = 100;
+
     public LgCoffeeMachine() {
     }
 

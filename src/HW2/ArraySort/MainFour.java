@@ -4,35 +4,34 @@ import java.util.Arrays;
 
 public class MainFour {
     public static void main(String[] args) {
-        int[] arrays = new int[6];
-        int[] arrays2 = new int[6];
-
-        arrays[0] = 1;
-        arrays[1] = 3;
-        arrays[2] = 5;
-        arrays[3] = 7;
-        arrays[4] = 9;
-        arrays[5] = 12;
-
-        arrays2[0] = 2;
-        arrays2[1] = 3;
-        arrays2[2] = 3;
-        arrays2[3] = 7;
-        arrays2[4] = 8;
-        arrays2[5] = 9;
-
-
-
-        sort(arrays, arrays2); // 2 Arrays sort...
-
+        int[] arrays = {1,3,5,7,9,12};
+        int[] arrays2 = {2,3,7,7,8,9,10,15,21,35};
+        sort(arrays, arrays2);
     }
-
     public static void sort(int[] array, int[] array2){
-        int[] twoArray = Arrays.copyOf(array, array.length + array2.length);
-        System.arraycopy(array2, 0, twoArray, array.length, array2.length);
-        Arrays.sort(twoArray);
-        System.out.println(Arrays.toString(twoArray));
+        int[] item = new int[array.length + array2.length];
+        int k = 0;
+        int j = 0;
+        for(int i = 0; i < item.length; i++){
+             if(k<array.length){
+                 if(array[k]<=array2[j]){
+                     item[i] = array[k];
+                     i++;
+                     item[i] = array2[j];
+                 }
+                 else {
+                     item[i] = array2[j];
+                     i++;
+                     item[i] = array[k];
+                 }
+                 k++;
+             }
+             else {
+                 item[i] = array2[j];
+             }
+            j++;
+        }
+        System.out.println(Arrays.toString(item));
     }
-
 }
 

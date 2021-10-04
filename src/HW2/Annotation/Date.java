@@ -1,6 +1,7 @@
 package HW2.Annotation;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Repeatable;
 import java.lang.annotation.Target;
 
 // 1.1 Написати свою анотацію, яка буде призначена лише для класу або методу,
@@ -13,4 +14,5 @@ public @interface Date {
     Months month();
     int year();
     String format();
+
 }

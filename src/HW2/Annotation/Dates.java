@@ -1,6 +1,7 @@
 package HW2.Annotation;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Repeatable;
 import java.lang.annotation.Target;
 
 // 1.2 Написати анотацію яка буде приймати масив анотацій з пункту
@@ -8,5 +9,5 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 public @interface Dates {
-    Date[] date();
+    Date[] value();
 }

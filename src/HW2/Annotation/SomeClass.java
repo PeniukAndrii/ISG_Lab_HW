@@ -1,9 +1,9 @@
 package HW2.Annotation;
 
 class SomeClass{
-    @Dates(date = {
-            @Date(day=Days.FRIDAY,number = 1,month = Months.APRIL,year = 2021,format = "1.02.2001"),
-            @Date(day=Days.FRIDAY,number = 1,month = Months.APRIL,year = 2021,format = "1.02.2001")
+    @Dates({
+            @Date(day = Days.FRIDAY, number = 1, month = Months.APRIL, year = 2021, format = "1.02.2001"),
+            @Date(day = Days.FRIDAY, number = 1, month = Months.APRIL, year = 2021, format = "1.02.2001")
     })
     private String someField;
 

@@ -25,8 +25,12 @@ class User{
         return name;
     }
 
-
     public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUserParam(int value,String name){
+        this.value = value;
         this.name = name;
     }
 

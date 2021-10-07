@@ -12,7 +12,6 @@ public class Service {
 
     public static void doTransaction(Consumer<Connection> consumer){
         try(Connection connection = DriverManager.getConnection(URL,USERNAME,PASSWORD)){
-
             connection.setAutoCommit(false);
             consumer.accept(connection);
             connection.setAutoCommit(true);

@@ -1,8 +1,5 @@
 package JDBC_HW;
 
-import NazariiHW1.task2.User;
-import sun.plugin2.main.server.ResultID;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +25,20 @@ public class ContactRepoImpl implements ContactRepository{
 
     @Override
     public void saveBull(List<Contact> contact) {
-
+        Service.doTransaction((connection) -> {
+            try {
+                for (Contact contact1: contact){
+                    PreparedStatement preparedStatement = connection.prepareStatement("INSERT contact(first_name, last_name, phone) VALUES(?,?,?)");
+                    preparedStatement.setString(1, contact1.getFirstName());
+                    preparedStatement.setString(2, contact1.getLastName());
+                    preparedStatement.setString(3, contact1.getPhone());
+                    preparedStatement.executeUpdate();
+                    preparedStatement.cancel();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override

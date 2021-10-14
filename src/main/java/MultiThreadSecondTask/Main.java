@@ -1,15 +1,31 @@
 package MultiThreadSecondTask;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 public class Main {
-    public static void main(String[] args) {
-        CoffeeMachine coffeeMachine = new CoffeeMachine(50,50,50);
-        Thread thread = new Thread(new User("Oksana",CoffeeReceipt.DOUBLE_ESPRESSO,coffeeMachine));
-        Thread thread2 = new Thread(new User("Oleg",CoffeeReceipt.AMERICANO, coffeeMachine));
-        Thread thread3 = new Thread(new User("Sergiy",CoffeeReceipt.DOUBLE_ESPRESSO, coffeeMachine));
-        Thread thread4 = new Thread(new User("Andriy",CoffeeReceipt.ESPRESSO, coffeeMachine));
-        Thread thread5 = new Thread(new User("Vova",CoffeeReceipt.AMERICANO, coffeeMachine));
-        Thread thread6 = new Thread(new User("Olga",CoffeeReceipt.DOUBLE_ESPRESSO,coffeeMachine));
-        Thread thread7 = new Thread(new User("Vira",CoffeeReceipt.AMERICANO, coffeeMachine));
-        Thread thread8 = new Thread(new User("Nadya",CoffeeReceipt.AMERICANO, coffeeMachine));
+    public static void main(String[] args) throws InterruptedException {
+        CoffeeMachine coffeeMachine = new CoffeeMachine();
+        ExecutorService es = Executors.newCachedThreadPool();
+        es.execute(new User("Oksana",CoffeeReceipt.DOUBLE_ESPRESSO,coffeeMachine));
+        es.execute(new User("Oleg",CoffeeReceipt.AMERICANO, coffeeMachine));
+        es.execute(new User("Sergiy",CoffeeReceipt.DOUBLE_ESPRESSO, coffeeMachine));
+        es.execute(new User("Andriy",CoffeeReceipt.ESPRESSO, coffeeMachine));
+        es.execute(new User("Vova",CoffeeReceipt.AMERICANO, coffeeMachine));
+        es.execute(new User("Olga",CoffeeReceipt.DOUBLE_ESPRESSO,coffeeMachine));
+        es.execute(new User("Vira",CoffeeReceipt.AMERICANO, coffeeMachine));
+        es.execute(new User("Nadya",CoffeeReceipt.AMERICANO, coffeeMachine));
+        es.shutdown();
+        try {
+            if (!es.awaitTermination(60, TimeUnit.SECONDS)) {
+                es.shutdownNow();
+            }
+        } catch (InterruptedException ex) {
+            es.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
+        coffeeMachine.calculateSpendingIngredient(coffeeMachine);
+        System.out.println("Залишилось- " + coffeeMachine);
     }
 }

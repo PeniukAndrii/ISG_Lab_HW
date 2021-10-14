@@ -1,9 +1,9 @@
 package MultiThreadSecondTask;
 
 public enum CoffeeReceipt {
-    AMERICANO(5,5,5),
-    ESPRESSO(10,10,10),
-    DOUBLE_ESPRESSO(15,15,15);
+    AMERICANO(5,10,5),
+    ESPRESSO(10,1,5),
+    DOUBLE_ESPRESSO(10,2,10);
 
     private int waterTank;
     private int milkTank;

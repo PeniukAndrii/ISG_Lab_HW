@@ -5,12 +5,10 @@ public class User extends Thread{
     private CoffeeReceipt coffeeReceipt;
     private volatile CoffeeMachine coffeeMachine;
 
-    private int water;
     public User() {
     }
 
     public User(String firstName, CoffeeReceipt coffeeReceipt, CoffeeMachine coffeeMachine) {
-        start();
         this.firstName = firstName;
         this.coffeeReceipt = coffeeReceipt;
         this.coffeeMachine = coffeeMachine;

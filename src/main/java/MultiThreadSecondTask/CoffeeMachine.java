@@ -1,15 +1,9 @@
 package MultiThreadSecondTask;
 
 public class CoffeeMachine {
-    private int water;
-    private int coffee;
-    private int milk;
-
-    public CoffeeMachine(int water, int coffee, int milk) {
-        this.water = water;
-        this.coffee = coffee;
-        this.milk = milk;
-    }
+    private int water = 50;
+    private int coffee = 45;
+    private int milk = 45;
 
     public int getWater() {
         return water;
@@ -65,6 +59,12 @@ public class CoffeeMachine {
             water -= coffeeReceipt.getWaterTank();
             System.out.println(firstName + " gets coffee");
         }
+    }
+
+    public void calculateSpendingIngredient(CoffeeMachine coffeeMachine){
+        System.out.println("Затрачено води- " + (50-coffeeMachine.getWater()));
+        System.out.println("Затрачено кави- " + (49-coffeeMachine.getCoffee()));
+        System.out.println("Затрачено молока- " + (49-coffeeMachine.getMilk()));
     }
 
     @Override

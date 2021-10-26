@@ -63,8 +63,8 @@ public class CoffeeMachine {
 
     public void calculateSpendingIngredient(CoffeeMachine coffeeMachine){
         System.out.println("Затрачено води- " + (50-coffeeMachine.getWater()));
-        System.out.println("Затрачено кави- " + (49-coffeeMachine.getCoffee()));
-        System.out.println("Затрачено молока- " + (49-coffeeMachine.getMilk()));
+        System.out.println("Затрачено кави- " + (45-coffeeMachine.getCoffee()));
+        System.out.println("Затрачено молока- " + (45-coffeeMachine.getMilk()));
     }
 
     @Override
